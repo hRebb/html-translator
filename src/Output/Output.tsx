@@ -14,3 +14,5 @@ class Output extends React.Component<OutputProps> {
         );
     }
 }
+
+export default Output;

@@ -16,3 +16,5 @@ class Input<Input> extends React.Component<InputProps<Input>> {
         );
     }
 }
+
+export default Input;
