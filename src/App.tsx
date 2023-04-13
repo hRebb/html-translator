@@ -1,4 +1,5 @@
 import React from 'react';
+import TurndownService from 'turndown';
 import { marked } from 'marked';
 import Input from './Input/Input';
 import Output from './Output/Output';
@@ -10,10 +11,18 @@ interface AppState {
 }
 
 class App extends React.Component<{}, AppState> {
+
+  turndownService: TurndownService;
+
   state: AppState = {
     markdown: '',
     html: '',
   };
+
+  constructor(props: {}) {
+    super(props);
+    this.turndownService = new TurndownService();
+  }
 
   handleMarkdownChange = (value: string) => {
     const html = marked(value);
@@ -21,7 +30,7 @@ class App extends React.Component<{}, AppState> {
   };
 
   handleHtmlChange = (value: string) => {
-    const markdown = marked(value);
+    const markdown = this.turndownService.turndown(value);
     this.setState({ markdown, html: value});
   };
 
