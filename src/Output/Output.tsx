@@ -8,7 +8,7 @@ interface OutputProps {
 class Output extends React.Component<OutputProps> {
     render() {
         return (
-            <div>
+            <div className='output-prompt'>
                 {parse(this.props.value)}
             </div>
         );

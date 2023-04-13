@@ -2,6 +2,7 @@ import React from 'react';
 import { marked } from 'marked';
 import Input from './Input/Input';
 import Output from './Output/Output';
+import './App.css';
 
 interface AppState {
   markdown: string;
@@ -27,10 +28,17 @@ class App extends React.Component<{}, AppState> {
   render() {
     return (
       <div>
-        <Input<string> value={this.state.markdown} onChange={this.handleMarkdownChange} />
-        <Output value={this.state.html} />
-        <Input<string> value={this.state.html} onChange={this.handleHtmlChange} />
-        <Output value={this.state.markdown} />
+        <div className="markdown">
+          <h1 className='markdown-title'>Markdown Code</h1>
+          <Input<string> value={this.state.markdown} onChange={this.handleMarkdownChange} />
+          <Output value={this.state.html} />
+        </div>
+        <br/>
+        <div className="html">
+          <h1 className="html-title">HTML Code</h1>
+          <Input<string> value={this.state.html} onChange={this.handleHtmlChange} />
+          <Output value={this.state.markdown} />
+        </div>
       </div>
     )
   }
